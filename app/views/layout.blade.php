@@ -404,14 +404,21 @@ label {
     <script>
         var heros = ['aquaman', 'wolverine', 'rogue', 'arrow', 'hulk', 'captain', 'fantastic', 'mutant', 'nightcrawler', 'superman', 'thor', 'tick', 'xavier', 'batman', 'venom', 'deadpool', 'flash', 'galacticus', 'ironman', 'punisher', 'spider'];
         var body = document.getElementsByTagName('body')[0];
-        console.log('hoi');
         // .className+=' js'
-        setInterval(function(){
+
+        function setHero() {
+            console.log('Setting new hero');
             var hero = heros[Math.floor(Math.random()*heros.length)];
-            body.className = 'hero ' + hero;
-            console.log('change:')
-            console.log(hero);
-        }, 12500);
+            var background = new Image();
+            background.src = "/backgrounds/" + hero +  ".jpg";
+            // Change the background once it's loaded
+            background.onload = function() {
+                console.log('Loaded')
+                body.className = 'hero ' + hero;
+                setTimeout(setHero, 10000);
+            };
+        };
+        setTimeout(setHero, 10000);
     </script>
   </body>
 </html>

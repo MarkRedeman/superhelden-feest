@@ -20,7 +20,7 @@ Route::get('/', function()
         'arrow', 'hulk',
         'captain', 'fantastic', 'mutant', 'nightcrawler', 'superman', 'thor', 'tick', 'xavier',
         'batman', 'venom',
-        'deadpool', 'flash', 'galacticus', 'ironman', 'punisher', 'spider'
+        'deadpool', 'flash', 'galacticus', 'ironman', 'punisher', 'spider',
     ];
     $hero = $heros[array_rand($heros)];
 	return View::make('index')->withHero($hero);
